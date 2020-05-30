@@ -20,6 +20,9 @@ export class HttpService {
     {name: "ed sheeren", id: "12418", image_url: ""},
   ]
 
+  //placeholder for a single artist -- not using as of yet , will update comment if start using
+  gotArtist: Object= {}
+
   //this is placeholder for the fetched artists
   fetchedArtirts: Object[] = []
 
@@ -41,6 +44,15 @@ export class HttpService {
     });
   }
 
+  // not using as of yet , will update comment if start using
+  getArtistById(id: string): any {
+    this._http.get("https://genius.p.rapidapi.com/artists/"+id, this.header).subscribe(
+      data => this.gotArtist = data
+    )
+    return this.gotArtist
+  }
+
+  //used this func for debugging purposes
   logFetchedArtists() {
     console.log(this.fetchedArtirts)
   }

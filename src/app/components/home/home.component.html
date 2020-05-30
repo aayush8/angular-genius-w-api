@@ -16,7 +16,7 @@
       <div class="row">
         <div class=" col-sm-10 col-md-6 col-lg-4" *ngFor="let artist of artists; index as i; trackBy: trackByFn">
           <div class="py-2 imgcontainer d-flex justify-content-center">
-            <a router-link="#">
+            <a routerLink="artist/{{artist.response.artist.id}}">
               <img class="popartists img-fluid" src={{artist.response.artist.image_url}} alt="" height="350px" width="350px">
             </a>
           </div>
