@@ -14,6 +14,8 @@ export class ArtistComponent implements OnInit {
   artist: any = {}
   //placeholder foe route param id
   id: string;
+  //placeholder for popular tracks
+  popularTracks: any = {}
 
    //header authentication to add to fetch the data from genius api
    header: Object = {
@@ -37,6 +39,17 @@ export class ArtistComponent implements OnInit {
   //got this help method to check empty object from stack overflow 
   isEmptyObject(obj) {
     return (obj && (Object.keys(obj).length === 0));
+  }
+
+  displayPopularTrackButton(): boolean {
+    if (this.popularTracks.length>0) return false;
+    else return true;
+  }
+
+  fetchPopularTracks(): void {
+    this._http.get("https://genius.p.rapidapi.com/artists/"+this.id+"/songs?sort=popularity&page=1&per_page=25", this.header).subscribe(
+      data => this.popularTracks = data
+    )
   }
 
 }

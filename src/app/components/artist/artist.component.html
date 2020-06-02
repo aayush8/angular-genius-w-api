@@ -16,6 +16,21 @@
                 <div class="mt-5 text-right">
                     <a href="/" class="btn btn-primary">Go Back</a>
                 </div>
+                <div *ngIf="isEmptyObject(popularTracks)" class="mt-5 text-right">
+                    <button class="btn btn-primary" (click)="fetchPopularTracks()">List popular tracks</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- for popular tracks -->
+        <div *ngIf="!isEmptyObject(popularTracks)" class="mt-3">
+            <h1 class="display-4">Tracks</h1>
+            <div class="row">
+                <div class="col-lg-4 col-md-6" *ngFor="let song of popularTracks.response.songs; index as i; ">
+                    <img src="{{song.header_image_thumbnail_url}}" height="200px" width="100%">
+                     <p> <strong>{{song.full_title}}</strong><br>
+                    <a href="{{song.url}}">See Lyrics</a></p>
+                </div>
             </div>
         </div>
     </div>
