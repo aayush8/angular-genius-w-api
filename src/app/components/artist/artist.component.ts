@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
-
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-artist',
@@ -11,7 +11,9 @@ import {HttpClient} from '@angular/common/http'
 export class ArtistComponent implements OnInit {
 
   //placeholder for fetched artist data
-  artist: Object = {}
+  artist: any = {}
+  //placeholder foe route param id
+  id: string;
 
    //header authentication to add to fetch the data from genius api
    header: Object = {
@@ -21,13 +23,15 @@ export class ArtistComponent implements OnInit {
     }
   }
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient, private route: ActivatedRoute, private router: Router ) { }
 
   ngOnInit(): void {
-    this._http.get("https://genius.p.rapidapi.com/artists/"+"1405", this.header).subscribe(
+    this.id = this.route.snapshot.paramMap.get('id');
+    // console.log(this.id);
+    this._http.get("https://genius.p.rapidapi.com/artists/"+this.id, this.header).subscribe(
       data => this.artist = data
     )
-    console.log(this.artist)
+    // console.log(this.artist)
   }
 
   //got this help method to check empty object from stack overflow 

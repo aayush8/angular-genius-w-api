@@ -37,11 +37,13 @@ export class HttpService {
   constructor(private _http: HttpClient) { }
 
   fetchAllPopular() {
-    this.popularArtists.forEach(artist => {
-      this._http.get("https://genius.p.rapidapi.com/artists/"+artist.id, this.header).subscribe(
-      data => this.fetchedArtirts.push(data)
-    )
-    });
+    if (this.fetchedArtirts.length<1) {
+      this.popularArtists.forEach(artist => {
+        this._http.get("https://genius.p.rapidapi.com/artists/"+artist.id, this.header).subscribe(
+        data => this.fetchedArtirts.push(data)
+      )
+      });
+    }
   }
 
   // not using as of yet , will update comment if start using

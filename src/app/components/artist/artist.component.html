@@ -1,5 +1,22 @@
-<div class="container">
-    <div *ngIf="!isEmptyObject(artist)e">
-        <p>{{artist.response.artist.name}}</p>
+<div class="container my-5">
+    <div *ngIf="!isEmptyObject(artist)">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="{{artist.response.artist.image_url}}" alt="{{artist.response.artist.name}}" class="img-fluid">
+            </div>
+            <div class="col-lg-6">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between"><strong>Name</strong> <span>{{artist.response.artist.name}}</span></li>
+                    <li class="list-group-item d-flex justify-content-between"><strong>Followers on Genius</strong> <span>{{artist.response.artist.followers_count}}</span></li>
+                    <li class="list-group-item d-flex justify-content-between"><strong>Facebook Id</strong> <span>{{artist.response.artist.facebook_name}}</span></li>
+                    <li class="list-group-item d-flex justify-content-between"><strong>Twitter Id</strong> <span>{{artist.response.artist.twitter_name}}</span></li>
+                    <li class="list-group-item d-flex justify-content-between"><strong>Insta Id</strong> <span>{{artist.response.artist.instagram_name}}</span></li>
+                    <li class="list-group-item d-flex justify-content-between"><strong>See on Genius</strong> <span><a href="{{artist.response.artist.url}}">Click Here</a></span></li>
+                </ul>
+                <div class="mt-5 text-right">
+                    <a href="/" class="btn btn-primary">Go Back</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

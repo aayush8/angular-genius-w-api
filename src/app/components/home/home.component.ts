@@ -7,13 +7,22 @@ import {HttpService} from '../../service/http.service'
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
 
   artists: Object[] = [];
+  
 
-  constructor(private _http:  HttpService) {}
+  constructor(private _http:  HttpService) {
+    
+  }
 
   ngOnInit() {
+    this.fetchOnce();
+   
+  }
+
+  fetchOnce() {
     this._http.fetchAllPopular();
     this.artists = this._http.fetchedArtirts;
   }
