@@ -1,0 +1,24 @@
+<div class="container mt-3">
+    <div *ngIf="isEmptyObject(resultTrack)">
+        <h1 class="display-4">
+            Loading ...
+        </h1>
+    </div>
+    <div *ngIf="!isEmptyObject(resultTrack)">
+        <h1 class="display-4 mb-5">
+            {{resultTrack.response.song.full_title}}
+        </h1>
+        <div class="row">
+            <div class="col-md-6 p-2">
+                <img src="{{resultTrack.response.song.header_image_url}}" alt="" class="img-fluid">
+                
+            </div>
+            <div class="col-md-6 p-2">
+               
+                <div [innerHTML]="resultTrack.response.song.embed_content"></div>
+
+                {{resultTrack.response.song.apple_music_player_url}}
+            </div>
+        </div>
+    </div>
+</div>

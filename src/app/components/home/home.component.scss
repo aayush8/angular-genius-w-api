@@ -8,3 +8,12 @@
        border: 2px solid black;
    }
 }
+
+.result-hover {
+    border: 2px solid white;
+    &:hover {
+        border: 2px solid red;
+        cursor: pointer;
+        color: red;
+    }
+}

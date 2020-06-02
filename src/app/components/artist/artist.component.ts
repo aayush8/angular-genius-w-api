@@ -47,7 +47,7 @@ export class ArtistComponent implements OnInit {
   }
 
   fetchPopularTracks(): void {
-    this._http.get("https://genius.p.rapidapi.com/artists/"+this.id+"/songs?sort=popularity&page=1&per_page=25", this.header).subscribe(
+    this._http.get("https://genius.p.rapidapi.com/artists/"+this.id+"/songs?sort=popularity&page=1&per_page=50", this.header).subscribe(
       data => this.popularTracks = data
     )
   }
