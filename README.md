@@ -1,1 +1,3 @@
-still developing this app  
+Site is hosted live on heroku
+
+
