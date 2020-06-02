@@ -13,7 +13,6 @@
         </div>
         <div class="row mt-3">
             <div class="col-md-6 p-2">
-               
                 <iframe width="560" height="315" [src]="getSanitizedUrl(extractYoutubeVideoId(getYoutubeUrlFromArray(resultTrack.response.song.media)))" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="col-md-6 p-2">
@@ -23,6 +22,7 @@
                 </div>
                <div>
                    <p class="lead"><strong>Album </strong> {{resultTrack.response.song.album.name}}</p>
+                   <p class="lead"><a href="{{resultTrack.response.song.url}}">Lyrics</a></p>
                </div>
             </div>
         </div>
